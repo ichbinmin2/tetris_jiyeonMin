@@ -1,0 +1,12 @@
+.container {
+  width: auto;
+  background-color: rgb(247, 255, 104);
+}
+
+.none {
+  border: none;
+}
+
+.line {
+  border: 1px solid gray;
+}

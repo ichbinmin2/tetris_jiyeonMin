@@ -1,0 +1,26 @@
+.warp {
+  width: 100vw;
+  height: 100vh;
+  background-color: darkcyan;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  margin: 0 auto;
+  /* max-width: 900px; */
+}
+
+.boxContainer {
+  /* height: 700px; */
+}
+
+.displayBox {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding: 10px;
+}

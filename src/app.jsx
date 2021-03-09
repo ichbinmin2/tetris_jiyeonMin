@@ -1,7 +1,8 @@
 import "./app.css";
+import Tetris from "./components/tetris/tetris";
 
 function App() {
-  return <h1>Hello :) </h1>;
+  return <Tetris />;
 }
 
 export default App;

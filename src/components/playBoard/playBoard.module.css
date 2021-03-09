@@ -1,0 +1,10 @@
+.playBoard {
+  display: grid;
+  grid-template-rows: repeat(20);
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 1px;
+  border: 1px solid #333;
+  width: 100%;
+  /* max-width: 20vw; */
+  background: #111;
+}
