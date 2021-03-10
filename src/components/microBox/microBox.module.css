@@ -1,6 +1,9 @@
+@value makerBlack from "../../common/colors.css";
+
 .container {
+  box-sizing: border-box;
   width: auto;
-  background-color: rgb(247, 255, 104);
+  background-color: makerBlack;
 }
 
 .none {

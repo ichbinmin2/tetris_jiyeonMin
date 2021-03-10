@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./tetris.module.css";
 //
 
-import Display from "../display";
+import Display from "../display/display";
 import PlayBoard from "../playBoard/playBoard";
-import StartButton from "../startButton";
+import StartButton from "../startButton/startButton";
 
 import { playingBoard } from "../../playingGame";
 

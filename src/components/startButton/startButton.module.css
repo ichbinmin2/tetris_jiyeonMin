@@ -1,0 +1,22 @@
+@value makerBlue, makerBlack from "../../common/colors.css";
+
+.btnBox {
+  box-sizing: border-box;
+  /* height: 100%; */
+  font-size: 0.8rem;
+}
+
+.btn {
+  margin: 0.5rem;
+  font-size: 20px;
+  font-weight: 700;
+  color: makerBlack;
+  border: 2px solid makerBlack;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  color: aliceblue;
+  background-color: makerBlue;
+  border: none;
+}

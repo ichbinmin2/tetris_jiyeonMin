@@ -5,9 +5,7 @@ const MicroBox = ({ type }) => (
   <div
     type={type}
     className={`${styles.container} type === 0 ? ${styles.none} : ${styles.line}`}
-  >
-    box
-  </div>
+  ></div>
 );
 
 export default MicroBox;

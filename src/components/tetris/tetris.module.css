@@ -1,15 +1,16 @@
 .warp {
   width: 100vw;
   height: 100vh;
-  background-color: darkcyan;
+  background: linear-gradient(-135deg, #e4a972, #9941d8) fixed;
 }
 
 .container {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 10px;
   margin: 0 auto;
   /* max-width: 900px; */
 }
@@ -20,7 +21,8 @@
 
 .displayBox {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 90%;
-  padding: 10px;
+  width: 100%;
+  padding: 10px 0;
 }
