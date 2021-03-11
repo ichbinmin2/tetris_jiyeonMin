@@ -5,11 +5,9 @@ const Display = ({ gameOver, text }) => {
   return (
     <section>
       <div className={styles.displayBox}>
-        {/* {!gameOver ? <span>{score}</span> : <span>Game Over</span>} */}
-        <div gameOver={gameOver} className={styles.text}>
-          {text}
+        <div className={styles.text}>
+          {gameOver ? <span>Game Over</span> : <span>{text}</span>}
         </div>
-        <div className={styles.socreCount}>스코어</div>
       </div>
     </section>
   );

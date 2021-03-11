@@ -6,4 +6,4 @@ const MicroBox = ({ type, color }) => {
   return <StyledMicroBox type={type} color={color}></StyledMicroBox>;
 };
 
-export default MicroBox;
+export default React.memo(MicroBox);

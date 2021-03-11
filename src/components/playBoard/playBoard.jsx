@@ -8,7 +8,6 @@ const PlayBoard = ({ playBoard, color }) => {
     <div className={styles.playBoard}>
       {playBoard.map((row) =>
         row.map((micro, x) => (
-          // <MicroBox key={x} type={micro[0]} />
           <MicroBox key={x} type={micro[0]} color={color} />
         ))
       )}
