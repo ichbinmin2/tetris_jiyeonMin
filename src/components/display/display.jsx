@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./display.module.css";
 
 const Display = ({ text }) => {
-  const [gameOver, setGameOver] = useState(false);
+  const [gameOver, setGameOver] = useState();
   const [score, setScore] = useState(0);
 
   return (

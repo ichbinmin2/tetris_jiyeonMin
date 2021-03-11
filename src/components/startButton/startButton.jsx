@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./startButton.module.css";
 
-const StartButton = ({ start }) => {
+const StartButton = ({ callback }) => {
   return (
     <section className={styles.btnBox}>
-      <button className={styles.btn}>start button</button>
+      <button className={styles.btn} onClick={callback}>
+        start button
+      </button>
     </section>
   );
 };

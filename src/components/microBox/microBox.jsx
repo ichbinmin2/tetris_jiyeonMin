@@ -1,11 +1,9 @@
 import React from "react";
-import styles from "./microBox.module.css";
+import { StyledMicroBox } from "../styles/StyledMicroBox";
 
-const MicroBox = ({ type }) => (
-  <div
-    type={type}
-    className={`${styles.container} type === 0 ? ${styles.none} : ${styles.line}`}
-  ></div>
-);
+const MicroBox = ({ type, color }) => {
+  // return <StyledMicroBox type={type} color={BLOCKS[type].color} />;
+  return <StyledMicroBox type={type} color={color} />;
+};
 
 export default MicroBox;

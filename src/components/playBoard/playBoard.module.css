@@ -4,8 +4,8 @@
   grid-template-rows: repeat(20, calc(30vw / 10));
   /* 20vw 였음 */
   grid-template-columns: repeat(10, 1fr);
-  /* grid-gap: 1px; */
-  /* border: 1px solid #333; */
+  grid-gap: 1px;
+  border: 1px solid #333;
   width: 500px;
   max-width: 30vw;
   /* 20vw 였음 */
