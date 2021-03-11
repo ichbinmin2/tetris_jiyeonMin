@@ -1,25 +1,23 @@
 import { useCallback, useState } from "react";
-// import { randomColorfulBlock, BLOCKS } from "../../block";
 import { randomColorfulBlock, BLOCKS } from "../../block";
 import { BOARD_WIDTH } from "../../playingGame";
-// import { BOARD_WIDTH } from "../../playingGame";
 
 export const usePlayer = (props) => {
   // 플레이어의 초기값 설정
   const [player, setPlayer] = useState({
     position: { x: 0, y: 0 },
-    blockType: BLOCKS.block.shape,
+    blockType: BLOCKS[0].shape,
     color: randomColorfulBlock(),
     bumped: false,
   });
 
   const playerUpdatePostion = ({ x, y, bumped }) => {
     // player의 움직이는 상태 업데이트 위치와 충돌 관련 값을 지정
-    setPlayer((prev) => ({
-      ...prev,
+    setPlayer((preview) => ({
+      ...preview,
       position: {
-        x: (prev.position.x = prev.position.x + x),
-        y: (prev.position.y = prev.position.y + y),
+        x: (preview.position.x = preview.position.x + x),
+        y: (preview.position.y = preview.position.y + y),
       },
       bumped,
     }));

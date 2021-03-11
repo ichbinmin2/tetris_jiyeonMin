@@ -9,3 +9,26 @@ export const playingBoard = () =>
     // [0, "empty"] 로 초기값을 설정해주었다.
     new Array(BOARD_WIDTH).fill([0, "fix"])
   );
+
+export const checkBumped = (player, playBoard, { x: moveX, y: moveY }) => {
+  for (let y = 0; y < player.blockType.length; y += 1) {
+    for (let x = 0; x < player.blockType[y].length; x += 1) {
+      if (player.blockType[y][x] !== 0) {
+        if (
+          // 1. 높이 안에서 움직이고 있는지 체크 (바닥 통과도 체크)
+          !playBoard[y + player.position.y + moveY] ||
+          // 2. 너비안에서 움직이고 있는지 체크
+          !playBoard[y + player.position.y + moveY][
+            x + player.position.x + moveX
+          ] ||
+          // 3. 움직이는 블럭이 'fix'인지 아닌지(스테이지 안인지) 체크
+          playBoard[y + player.position.y + moveY][
+            x + player.position.x + moveX
+          ][1] !== "fix"
+        ) {
+          return true;
+        }
+      }
+    }
+  }
+};

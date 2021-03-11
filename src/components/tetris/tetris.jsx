@@ -3,22 +3,28 @@ import styles from "./tetris.module.css";
 import Display from "../display/display";
 import PlayBoard from "../playBoard/playBoard";
 import StartButton from "../startButton/startButton";
-import { playingBoard } from "../../playingGame";
+import { playingBoard, checkBumped } from "../../playingGame";
+
+import { useInterval } from "../hooks/useInterval";
 import { usePlayer } from "../hooks/usePlayer";
 import { usePlayBoard } from "../hooks/usePlayBoard";
 
 const Tetris = (props) => {
+  const [fallTime, setFallTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
-  // const [fallTime, setFallTime] = useState(null);
+
   const [player, playerUpdatePostion, resetPlayer] = usePlayer();
-  const [playBoard, setPlayBoard] = usePlayBoard(player);
+  const [playBoard, setPlayBoard] = usePlayBoard(player, resetPlayer);
 
   console.log("리렌더링");
 
   // 플레이어(블럭) 핸들러
   const handlerMovePlayer = (dir) => {
-    // 플레이어(블록)의 위치의 상태값을 업데이트하여 지정
-    playerUpdatePostion({ x: dir, y: 0 });
+    // 충돌이 되지 않으면 플레이어(블록)의 위치와 상태값을 받아서
+    if (!checkBumped(player, playBoard, { x: dir, y: 0 })) {
+      // 플레이어(블록)의 위치의 상태값을 업데이트하여 지정
+      playerUpdatePostion({ x: dir, y: 0 });
+    }
   };
 
   // 게임 Start 처리
@@ -28,17 +34,30 @@ const Tetris = (props) => {
     setPlayBoard(playingBoard());
     // player 상태를 초기화시킴
     resetPlayer();
-    // setGameOver(false);
+    // 게임오버
+    setGameOver(false);
   };
 
   // 플레이어(블록)의 떨어지는 움직임 감지
   const onFallingBlock = () => {
-    // 플레이어(블록)의 위치의 상태값을 업데이트하여 지정
-    playerUpdatePostion({ x: 0, y: 1, bumped: false });
+    // 충돌이 되지 않으면 플레이어(블록)의 위치와 상태값을 받아서
+    if (!checkBumped(player, playBoard, { x: 0, y: 1 })) {
+      // 플레이어(블록)의 위치의 상태값을 업데이트하여 지정
+      playerUpdatePostion({ x: 0, y: 1, bumped: false });
+    } else {
+      // 게임오버
+      if (player.position.y < 1) {
+        console.log("게임오벙");
+        setGameOver(true);
+        setFallTime(null);
+      }
+      playerUpdatePostion({ x: 0, y: 0, bumped: true });
+    }
   };
 
   // 플레이어의 의도대로 블록이 떨어지도록 하는 기능 처리
   const handlerFalling = () => {
+    console.log("떨어지는 기능 수행 중 ");
     onFallingBlock();
   };
 
@@ -67,6 +86,9 @@ const Tetris = (props) => {
   // 플레이어의 마우스(좌우) 움직임 감지
   const onMouseMove = () => {};
 
+  // const useInterval(() => {
+
+  // })
   return (
     <section
       className={styles.warp}

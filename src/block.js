@@ -22,9 +22,3 @@ export const randomColorfulBlock = () => {
     colorfulBlock[Math.floor(Math.random() * colorfulBlock.length)];
   return BLOCKS.block.color[randomColorful];
 };
-
-// export const randomBlocks = () => {
-//   const tetrominos = "IJLOSTZ";
-//   const randomBlock = tetrominos[Math.floor(Math.random() * tetrominos.length)];
-//   return BLOCKS[randomBlock];
-// };
