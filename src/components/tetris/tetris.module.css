@@ -23,13 +23,16 @@
 
 .displayBox {
   box-sizing: border-box;
-  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 180px;
   padding: 10px;
   background-color: makerModern;
 }
 
 @media screen and (max-width: mediaQuery) {
   .displayBox {
-    width: 100px;
+    width: 120px;
   }
 }
