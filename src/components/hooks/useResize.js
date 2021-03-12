@@ -6,7 +6,6 @@ export const useResize = (myRef) => {
   });
 
   const [dimensions, setDimensions] = useState({ WIDTH: 0 });
-
   useEffect(() => {
     const handleResize = () => {
       setDimensions(getDimensions());

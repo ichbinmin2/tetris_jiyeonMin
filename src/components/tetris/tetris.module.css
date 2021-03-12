@@ -1,3 +1,6 @@
+@value makerModern from "../../common/colors.css";
+@value mediaQuery from "../../common/size.css";
+
 .warp {
   width: 100vw;
   height: 100vh;
@@ -12,16 +15,21 @@
   align-items: center;
   padding: 10px;
   margin: 0 auto;
-  /* max-width: 900px; */
 }
+
 .boxContainer {
   display: flex;
 }
-.displayBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  width: 100%;
-  padding: 10px 0;
+.displayBox {
+  box-sizing: border-box;
+  width: 150px;
+  padding: 10px;
+  background-color: makerModern;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .displayBox {
+    width: 100px;
+  }
 }

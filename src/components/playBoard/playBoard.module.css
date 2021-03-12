@@ -1,13 +1,11 @@
 .playBoard {
   box-sizing: border-box;
   display: grid;
-  grid-template-rows: repeat(20, calc(20vw / 10));
-  /* 20vw 였음 */
+  grid-template-rows: repeat(20, calc(22vw / 10));
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 1px;
   border: 1px solid #333;
-  width: 500px;
-  max-width: 20vw;
-  /* 20vw 였음 */
+  width: 400px;
+  max-width: 25vw;
   background: #111;
 }

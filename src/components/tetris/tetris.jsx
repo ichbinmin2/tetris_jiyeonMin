@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import styles from "./tetris.module.css";
+import Header from "../haeder/header";
 import Display from "../display/display";
 import PlayBoard from "../playBoard/playBoard";
 import StartButton from "../startButton/startButton";
@@ -16,7 +17,14 @@ const Tetris = () => {
   const [gameOver, setGameOver] = useState(false);
   const [player, playerUpdatePostion, resetPlayer] = usePlayer();
   const [playBoard, setPlayBoard, attack] = usePlayBoard(player, resetPlayer);
-  const [score, setScore, rows, setRows] = usePlayGame(attack);
+  const [
+    score,
+    setScore,
+    attackBlock,
+    setAttackBlock,
+    level,
+    setLevel,
+  ] = usePlayGame(attack);
   const myRef = useRef();
   const { WIDTH } = useResize(myRef);
 
@@ -40,11 +48,18 @@ const Tetris = () => {
     // 게임오버
     setGameOver(false);
     setScore(0);
-    setRows(0);
+    setAttackBlock(0);
+    setLevel(0);
   };
 
   // 플레이어(블록)의 떨어지는 움직임 감지
   const onFallingBlock = () => {
+    // 레벨 올리기!
+    if (attackBlock > (level + 1) * 10) {
+      setLevel((preview) => preview + 1);
+      setFallTime(1000 / (level + 1) + 200);
+    }
+
     // 충돌이 되지 않으면 플레이어(블록)의 위치와 상태값을 받아서
     if (!checkBumped(player, playBoard, { x: 0, y: 1 })) {
       // 플레이어(블록)의 위치의 상태값을 업데이트하여 지정
@@ -122,17 +137,20 @@ const Tetris = () => {
       ref={myRef}
     >
       <div className={styles.container}>
-        <h1>Teta's Tetris Game!</h1>
+        <Header />
         <div className={styles.boxContainer}>
           <PlayBoard playBoard={playBoard} color={player.color} />
 
           <div className={styles.displayBox}>
             {gameOver ? (
-              <Display gameOver={gameOver} text="Game Over" />
+              <div className={styles.display}>
+                <Display gameOver={gameOver} text="GAME OVER" />
+              </div>
             ) : (
-              <div>
+              <div className={styles.display}>
                 <Display text={`SCORE : ${score}`} />
-                <Display text={`ROWS : ${rows}`} />
+                <Display text={`ATTACK : ${attackBlock}`} />
+                <Display text={`LEVEL : ${level}`} />
               </div>
             )}
             <StartButton callback={onStartGame} />

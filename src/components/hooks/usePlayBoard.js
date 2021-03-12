@@ -54,7 +54,13 @@ export const usePlayBoard = (player, resetPlayer) => {
 
     // 상태 업데이트
     setPlayBoard((preview) => boardUpdateStep(preview));
-  }, [player, resetPlayer]);
+  }, [
+    player.bumped,
+    player.position.y,
+    player.position.x,
+    player.blockType,
+    resetPlayer,
+  ]);
 
   return [playBoard, setPlayBoard, attack];
 };

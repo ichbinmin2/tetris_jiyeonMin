@@ -5,7 +5,7 @@ const StartButton = ({ callback }) => {
   return (
     <section className={styles.btnBox}>
       <button className={styles.btn} onClick={callback}>
-        start button
+        GAME START!
       </button>
     </section>
   );
