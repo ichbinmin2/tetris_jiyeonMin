@@ -1,5 +1,7 @@
 ## 👩🏻‍💻 Tetris Game
 
+- [Teta's tetris game 바로가기 ⚡️ ](https://ichbinmin2.github.io/tetris_jiyeonMin/)
+
 ### ▪️ 기술 스택
 
 - ReactJS / React-Hooks
